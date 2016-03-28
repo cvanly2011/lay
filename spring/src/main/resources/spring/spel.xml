@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<context:annotation-config/>
+	<bean id="world" class="java.lang.String">
+		<constructor-arg value="#{'World!'}"/>
+	</bean>
+
+	<bean id="hello1" class="java.lang.String">
+		<constructor-arg value="#{'Hello'}#{world}"/>
+	</bean>
+
+	<bean id="hello2" class="java.lang.String">
+		<constructor-arg value="#{'Hello'+world}"/>
+	</bean>
+
+	<bean id="hello3" class="java.lang.String">
+		<constructor-arg value="#{'Hello' + @world}"/>
+	</bean>
+
+	<bean id="helloBean1" class="com.lay.spring.spel.AnnoExpression"/>
+
+	<bean id="helloBean2" class="com.lay.spring.spel.AnnoExpression">
+		<property name="value" value="haha"/>
+	</bean>
+
+	<bean id="spelLiteral" class="com.lay.spring.spel.SpeLliteral">
+		<property name="count" value="#{5}"/>
+		<property name="message" value="The Value is #{5}"/>
+		<property name="frequency" value="#{89.7}"/>
+		<property name="capacity" value="#{1e4}"/>
+		<property name="name1" value="#{'Check'}"/>
+		<property name="name2" value="#{'Check'}"/>
+		<property name="enabled" value="#{false}"/>
+	</bean>
+
+	<bean id="spelClass" class="com.lay.spring.spel.SpelClass">
+		<property name="pi" value="#{T(java.lang.Math).PI}"/>
+		<property name="randomNum" value="#{T(java.lang.Math).random()}"/>
+	</bean>
+
+	<bean id="counter" class="com.lay.spring.spel.SpelCounter">
+		<property name="total" value="#{100}"/>
+		<property name="count" value="#{10}"/>
+ 	</bean>
+
+	<bean id="spelMath" class="com.lay.spring.spel.SpelMath">
+		<property name="adjustedAmount" value="#{counter.total + 42}"/>
+		<property name="circumFerence" value="#{2 * T(java.lang.Math).PI * counter.total}"/>
+		<property name="average" value="#{counter.total / counter.count}"/>
+		<property name="remainder" value="#{counter.total % counter.count}"/>
+		<property name="area" value="#{T(java.lang.Math).PI * counter.total ^ 2}"/>
+		<property name="fullName" value="#{'张'+' '+'三'}"/>
+	</bean>
+
+	<util:list id="cities">
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName1" p:state="1" p:population="1000000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName2" p:state="2" p:population="2000000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName3" p:state="3" p:population="100000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName4" p:state="4" p:population="1500000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName5" p:state="5" p:population="4000000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName6" p:state="6" p:population="10000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName7" p:state="7" p:population="1200000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName8" p:state="8" p:population="8000000"/>
+		<bean class="com.lay.spring.spel.SpelCity" p:name="cityName9" p:state="9" p:population="1000"/>
+	</util:list>
+
+	<bean id="cityList" class="com.lay.spring.spel.SpelCityList">
+		<property name="chosenCity1" value="#{cities[2]}"/>
+		<property name="chosenCity2" value="#{cities[T(java.lang.Math).random()*cities.size()]}"/>
+		<property name="bigCitys" value="#{cities.?[population gt 1000000]}"/>
+		<property name="aBigCity1" value="#{cities.^[population gt 1000000]}"/>
+		<property name="aBigCity2" value="#{cities.^[population gt 1000000]}"/>
+		<property name="cityName1" value="#{cities.![name]}"/>
+		<property name="cityName2" value="#{cities.![name+','+state]}"/>
+		<property name="cityName3" value="#{cities.?[population gt 1000000].![name + ','+state]}"/>
+	</bean>
+
+
+
+</beans>
