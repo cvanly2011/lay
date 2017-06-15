@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lay</groupId>
+    <artifactId>spring-boot-thymeleaf</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
+
+    <!--<properties>-->
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+        <!--<java.version>1.8</java.version>-->
+        <!--<maven.compiler.source>${java.version}</maven.compiler.source>-->
+        <!--<maven.compiler.target>${java.version}</maven.compiler.target>-->
+        <!--&lt;!&ndash;<failOnMissingWebXml>false</failOnMissingWebXml>&ndash;&gt;-->
+        <!--&lt;!&ndash; Overriding version of selected dependencies &ndash;&gt;-->
+        <!--&lt;!&ndash; Work when using spring-boot-starter-parent, not platform-bom &ndash;&gt;-->
+        <!--<thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>-->
+        <!--&lt;!&ndash;<thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>&ndash;&gt;-->
+        <!--<thymeleaf-layout-dialect.version>2.2.0</thymeleaf-layout-dialect.version>-->
+        <!--&lt;!&ndash;<assertj.version>3.6.2</assertj.version>&ndash;&gt;-->
+    <!--</properties>-->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!-- WebJars -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

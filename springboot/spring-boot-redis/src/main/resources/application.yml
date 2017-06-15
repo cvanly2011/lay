@@ -1,0 +1,46 @@
+server:
+  port: 8001
+
+#redis单机配置
+#spring:
+#  redis:
+##    database: 0
+#    host: 127.0.0.1
+#    port: 6379
+#    password: chen8558262
+#    pool:
+#      max-active: 100
+#      max-wait: -1
+#      max-idle: 100
+#      min-idle: 0
+#    timeout: 0
+
+#redis多数据源配置
+master:
+  redis:
+  #    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: chen8558262
+    pool:
+      max-active: 100
+      max-wait: -1
+      max-idle: 100
+      min-idle: 0
+    timeout: 0
+
+slaveOne:
+  redis:
+  #    database: 0
+    host: 127.0.0.1
+    port: 6380
+    password: chen8558262
+    pool:
+      max-active: 100
+      max-wait: -1
+      max-idle: 100
+      min-idle: 0
+    timeout: 0
+
+
+
