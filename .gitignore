@@ -32,7 +32,3 @@ build/
 *.zip
 *.tmp
 
-fabirc8/
-spring-boot-thymeleaf/src/test/
-springboot/spring-boot-es/src/test/
-springboot/spring-boot-redis/src/test/
