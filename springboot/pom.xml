@@ -10,6 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-boot-redis</module>
+        <module>springrestdoc</module>
+        <module>swaggertest</module>
+        <module>spring-boot-jpa</module>
+        <module>dubbo-server</module>
+        <module>dubbo-client</module>
+        <module>dubbo-api</module>
     </modules>
 
     <parent>
