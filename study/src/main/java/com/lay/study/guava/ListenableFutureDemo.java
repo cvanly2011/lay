@@ -44,28 +44,28 @@ public class ListenableFutureDemo {
 
 
         //同步获取调用结果
-        try {
-            System.out.println(listenableFuture.get());
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        } catch (ExecutionException e1) {
-            e1.printStackTrace();
-        }
+//        try {
+//            System.out.println(listenableFuture.get());
+//        } catch (InterruptedException e1) {
+//            e1.printStackTrace();
+//        } catch (ExecutionException e1) {
+//            e1.printStackTrace();
+//        }
 
         //第一种方式
-        listenableFuture.addListener(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    System.out.println("get listenable future's result "
-                            + listenableFuture.get());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, executorService);
+//        listenableFuture.addListener(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    System.out.println("get listenable future's result "
+//                            + listenableFuture.get());
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (ExecutionException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, executorService);
 
         //第二种方式
         Futures.addCallback(listenableFuture, new FutureCallback<Integer>() {

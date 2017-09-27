@@ -32,3 +32,14 @@ build/
 *.zip
 *.tmp
 
+fabirc8/
+spring-boot-thymeleaf/src/test/
+springboot/dubbo-api/
+springboot/dubbo-client/
+springboot/dubbo-server/
+springboot/spring-boot-es/src/test/
+springboot/spring-boot-jpa/
+springboot/spring-boot-redis/src/test/
+springboot/springrestdoc/
+springboot/swaggertest/
+springclouddemo/
