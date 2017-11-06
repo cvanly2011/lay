@@ -4,12 +4,15 @@ server:
 spring:
   data:
     elasticsearch:
-      properties:
-        host : 127.0.0.1
-        port: 9300
-      repositories:
-        enabled: true
-      cluster-name: esMaster
-#      cluster-nodes: 127.0.0.1:9300
+#若本地没有安装elasticsearch server开启以下注释
+#      properties:
+#        host : 127.0.0.1
+#        port: 9300
+#      repositories:
+#        enabled: true
+#      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+
+
 
 

@@ -12,6 +12,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.3.RELEASE</version>
+        <!--<version>1.4.5.RELEASE</version>-->
     </parent>
 
     <dependencies>
@@ -21,11 +22,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-data-elasticsearch</artifactId>-->
-        <!--</dependency>-->
-
         <!-- 解决es no jna warning-->
         <dependency>
             <groupId>com.sun.jna</groupId>
@@ -33,17 +29,20 @@
             <version>3.0.9</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.elasticsearch</groupId>-->
-            <!--<artifactId>jna</artifactId>-->
-            <!--<version>4.4.0</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
