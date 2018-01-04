@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Create by yalei.chen on 2017/6/16
@@ -42,5 +43,13 @@ public class ESController {
         AccountInfo accountInfo = esAccountInfoServiceImpl.queryAccountInfoByName(accountName);
 
         return accountInfo;
+    }
+
+    @RequestMapping("/list")
+    public  List<AccountInfo> list(ModelMap modelMap){
+
+        List<AccountInfo> accountInfos = esAccountInfoServiceImpl.queryList();
+
+        return accountInfos;
     }
 }

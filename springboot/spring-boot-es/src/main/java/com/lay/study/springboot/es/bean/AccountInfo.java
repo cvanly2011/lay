@@ -74,4 +74,16 @@ public class AccountInfo {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "AccountInfo{" +
+                "id='" + id + '\'' +
+                ", accountName='" + accountName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", age=" + age +
+                ", income=" + income +
+                ", createTime=" + createTime +
+                '}';
+    }
 }
