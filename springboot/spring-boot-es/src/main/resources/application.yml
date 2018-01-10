@@ -10,9 +10,15 @@ spring:
 #        port: 9300
 #      repositories:
 #        enabled: true
-      cluster-name: lease-es-local
-      cluster-nodes: 127.0.0.1:9300
-
+#连接外部es
+#      cluster-name: lease-es-local
+#      cluster-nodes: 127.0.0.1:9300
+#jest连接方式
+  elasticsearch:
+    jest:
+      uris:
+      - http://127.0.0.1:9200
+      read-timeout: 5000
 
 
 
