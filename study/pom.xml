@@ -6,8 +6,12 @@
 
     <groupId>com.lay</groupId>
     <artifactId>study</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+    </properties>
 
     <dependencies>
 
@@ -47,6 +51,21 @@
             <version>2.6</version>
         </dependency>
 
+        <!-- JMH START -->
+
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.21</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--JMH END -->
+
         <!-- netty -->
         <dependency>
             <groupId>io.netty</groupId>
@@ -59,6 +78,44 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wltea.ik-analyzer</groupId>
+            <artifactId>ik-analyzer</artifactId>
+            <version>3.2.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>3.6.0</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+
+        <!--poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.16</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.16</version>
         </dependency>
     </dependencies>
 
@@ -79,8 +136,52 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <!--<annotationProcessorPaths>-->
+                        <!--<path>-->
+                            <!--<groupId>org.mapstruct</groupId>-->
+                            <!--<artifactId>mapstruct-processor</artifactId>-->
+                            <!--<version>${org.mapstruct.version}</version>-->
+                        <!--</path>-->
+                    <!--</annotationProcessorPaths>-->
+                    <!--<compilerArgs>-->
+                        <!--<compilerArg>-->
+                            <!-- -Amapstruct.suppressGeneratorTimestamp=true-->
+                        <!--</compilerArg>-->
+                        <!--<compilerArg>-->
+                            <!-- -Amapstruct.suppressGeneratorVersionInfoComment=true-->
+                        <!--</compilerArg>-->
+                        <!--<compilerArg>-->
+                                <!--&lt;!&ndash;default：映射器不使用组件模型，通常通过检索实例 Mappers#getMapper(Class)&ndash;&gt;-->
+                                    <!--&lt;!&ndash;cdi：生成的映射器是一个应用程序范围的CDI bean，可以通过它检索 @Inject&ndash;&gt;-->
+                                 <!--&lt;!&ndash;spring：生成的映射器是一个单例范围的Spring bean，可以通过它检索 @Autowired&ndash;&gt;-->
+                                 <!--&lt;!&ndash;jsr330：生成的映射器使用{@code @Named}进行注释，并且可以通过@Inject例如Spring 来检索&ndash;&gt;-->
+                            <!-- -Amapstruct.defaultComponentModel=default-->
+                        <!--</compilerArg>-->
+                    <!--</compilerArgs>-->
                 </configuration>
             </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-shade-plugin</artifactId>-->
+                <!--<version>2.0</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>shade</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<finalName>microbenchmarks</finalName>-->
+                            <!--<transformers>-->
+                                <!--<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+                                    <!--<mainClass>org.openjdk.jmh.Main</mainClass>-->
+                                <!--</transformer>-->
+                            <!--</transformers>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 

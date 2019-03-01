@@ -21,11 +21,12 @@ public class LamdaExample {
 
 //        sort1Test();
 
-//        spliteratorTest();
+        spliteratorTest();
 
-        reduceTest();
+//        reduceTest();
 
     }
+
 
     private static void reduceTest() {
         Stream<String> stream = Stream.of("I", "love", "you", "too");

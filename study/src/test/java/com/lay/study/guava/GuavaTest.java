@@ -6,6 +6,7 @@ import com.google.common.collect.Ordering;
 import com.google.common.primitives.Ints;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Lay on 2016/3/21.
  */
-@Log4j
+@Slf4j
 public class GuavaTest {
 
     @Test
@@ -23,7 +24,7 @@ public class GuavaTest {
      */
     public void preconditionsTest(){
 
-        log.info("----start----");
+//        log.info("----start----");
         int i = 2, j = 1;
 //        Preconditions.checkArgument(i < j, "Expected i < j, but %s > %s", i, j);
 
@@ -53,12 +54,12 @@ public class GuavaTest {
 
         GuavaVo guavaVo = new GuavaVo();
         int hashCode = Objects.hashCode(guavaVo);
-        log.info("hashCode:"+hashCode);
+//        log.info("hashCode:"+hashCode);
 
         GuavaVo guavaVo1 = new GuavaVo();
         guavaVo1.setName("Tom");
         int hashCode1 = Objects.hashCode(guavaVo1);
-        log.info("hashCode1:"+hashCode1);
+//        log.info("hashCode1:"+hashCode1);
 
     }
 
